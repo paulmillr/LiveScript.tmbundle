@@ -235,7 +235,7 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
-				and=|or=|!|%|&amp;|\^|\*|\/|(\-)?\-(?!\-?&gt;)|\+\+|\+|~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
+				and=|or=|!|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?[&gt;])|\+\+|\+|~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
 				&gt;&gt;&gt;=|&lt;&gt;|&lt;|&gt;|!|&amp;&amp;|\.\.(\.)?|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|&amp;=|
 				\^=|\b(?&lt;![\.\$])(instanceof|new|delete|typeof|and|or|is|isnt|not)\b
 			</string>
@@ -262,7 +262,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([a-zA-Z\$_](\w|\$|\.)*\s*(?!\::)((:)|(=))(?!(\s*\(.*\))?\s*([~-]{1,2}&gt;)))</string>
+			<string>([a-zA-Z\$_]([\w$.-])*\s*(?!\::)((:)|(=))(?!(\s*\(.*\))?\s*([~-]{1,2}&gt;)))</string>
 			<key>name</key>
 			<string>variable.assignment.livescript</string>
 		</dict>
@@ -342,7 +342,7 @@
 				(\s*)
 				(?=[a-zA-Z\$_])
 				(
-					[a-zA-Z\$_](\w|\$|:|\.)*\s*
+					[a-zA-Z\$_]([\w$.:-])*\s*
 					(?=[:=](\s*\(.*\))?\s*([~-]{1,2}&gt;))
 				)
 			</string>
@@ -404,7 +404,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(class\b)\s+(@?[a-zA-Z\$_][\w\.]*)?(?:\s+(extends)\s+(@?[a-zA-Z\$\._][\w\.]*))?</string>
+			<string>(class\b)\s+(@?[a-zA-Z$_][\w$.-]*)?(?:\s+(extends)\s+(@?[a-zA-Z$_][\w$.-]*))?</string>
 			<key>name</key>
 			<string>meta.class.livescript</string>
 		</dict>
@@ -647,7 +647,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(@)([a-zA-Z_\$]\w*)?</string>
+					<string>(@)([a-zA-Z$_][\w$-]*)?</string>
 					<key>name</key>
 					<string>variable.other.readwrite.instance.livescript</string>
 				</dict>
@@ -747,7 +747,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>([a-zA-Z\$_]\w*(\.\w+)*)</string>
+					<string>([a-zA-Z\$_][\w$-]*(\.\w+)*)</string>
 					<key>name</key>
 					<string>variable.assignment.livescript</string>
 				</dict>
