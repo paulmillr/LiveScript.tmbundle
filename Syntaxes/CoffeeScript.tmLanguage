@@ -235,7 +235,8 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
-				and=|or=|!|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?[&gt;])|\+\+|\+|~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
+				and=|or=|!|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?[&gt;])|\+\+|\+|
+				~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
 				&gt;&gt;&gt;=|&lt;&gt;|&lt;|&gt;|!|&amp;&amp;|\.\.(\.)?|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|&amp;=|
 				\^=|\b(?&lt;![\.\$])(instanceof|new|delete|typeof|and|or|is|isnt|not)\b
 			</string>
@@ -565,6 +566,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#backslash_string</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#single_quoted_string</string>
 		</dict>
 		<dict>
@@ -578,6 +583,36 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>backslash_string</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>\\</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.livescript</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\s</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.livescript</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.quoted.single.livescript</string>
+				</dict>
+			</array>
+		</dict>
 		<key>double_quoted_string</key>
 		<dict>
 			<key>patterns</key>
