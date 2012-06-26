@@ -168,6 +168,14 @@
 		</dict>
 		<dict>
 			<key>begin</key>
+			<string>&lt;\[</string>
+			<key>end</key>
+			<string>\]&gt;</string>
+			<key>name</key>
+			<string>string.array-literal.livescript</string>
+		</dict>
+		<dict>
+			<key>begin</key>
 			<string>\/\*</string>
 			<key>captures</key>
 			<dict>
@@ -247,7 +255,7 @@
 			<string>(?x)
 				and=|or=|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?&gt;)|\+\+|\+|
 				~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
-				&gt;&gt;&gt;=|&lt;&gt;|&lt;|&gt;|!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|&amp;=|
+				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|&amp;=|
 				\^=|\b(?&lt;![\.\$])(instanceof|new|delete|typeof|and|or|is|isnt|not)\b
 			</string>
 			<key>name</key>
