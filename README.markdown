@@ -13,7 +13,7 @@ Pop open your favorite shell and run...
 
 It's fine if TextMate is open.
 
-![](http://f.cl.ly/items/2e2L2s2O0V2y1r2n0l1y/Screen%20Shot%202012-06-26%20at%205.24.15%20PM.png)
+![](https://a248.e.akamai.net/camo.github.com/6e3e677919dbfcf19b4e718c406938c9ab2d2ce8/687474703a2f2f662e636c2e6c792f6974656d732f3265324c3273324f305632793172326e306c31792f53637265656e25323053686f74253230323031322d30362d32362532306174253230352e32342e3135253230504d2e706e67)
 
 ## License
 The MIT License (MIT)
