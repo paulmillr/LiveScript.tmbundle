@@ -158,7 +158,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&lt;!#)###(?!#)</string>
+			<string>\/\*</string>
 			<key>captures</key>
 			<dict>
 				<key>0</key>
@@ -168,7 +168,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>###(?:[ \t]*\n)</string>
+			<string>\*\/(?:[ \t]*\n)</string>
 			<key>name</key>
 			<string>comment.block.livescript</string>
 			<key>patterns</key>
