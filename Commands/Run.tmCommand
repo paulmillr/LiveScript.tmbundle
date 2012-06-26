@@ -27,6 +27,6 @@ ${TM_COFFEE:=coffee} -s | pre
 	<key>scope</key>
 	<string>source.livescript</string>
 	<key>uuid</key>
-	<string>30395DAB-44A6-44F7-99E1-02D64621303A</string>
+	<string>2D4A1111-44A6-44F7-99E1-02D64621303A</string>
 </dict>
 </plist>

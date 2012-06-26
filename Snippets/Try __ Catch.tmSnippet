@@ -14,6 +14,6 @@ catch ${2:error}
 	<key>tabTrigger</key>
 	<string>try</string>
 	<key>uuid</key>
-	<string>CAFB0DED-5E23-4A84-AC20-87FBAF22DBAC</string>
+	<string>2D4A1111-5E23-4A84-AC20-87FBAF22DBAC</string>
 </dict>
 </plist>

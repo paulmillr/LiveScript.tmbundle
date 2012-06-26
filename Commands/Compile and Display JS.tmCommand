@@ -28,6 +28,6 @@ ${TM_COFFEE:=coffee} -scp --bare | pre
 	<key>scope</key>
 	<string>source.livescript</string>
 	<key>uuid</key>
-	<string>D749F761-1740-4918-9490-90DF376BA72E</string>
+	<string>2D4A1111-1740-4918-9490-90DF376BA72E</string>
 </dict>
 </plist>

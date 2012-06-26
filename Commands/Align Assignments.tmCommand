@@ -154,6 +154,6 @@ comments.flatten.each { |c| puts "# #{c}" }
 	<key>scope</key>
 	<string>source.livescript</string>
 	<key>uuid</key>
-	<string>EE3293A5-3761-40BD-9CA8-DAAA176AA19E</string>
+	<string>2D4A1111-3761-40BD-9CA8-DAAA176AA19E</string>
 </dict>
 </plist>
