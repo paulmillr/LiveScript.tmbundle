@@ -197,9 +197,9 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>/{3}</string>
+			<string>/{2}</string>
 			<key>end</key>
-			<string>/{3}[imgy]{0,4}</string>
+			<string>/{2}[imgy]{0,4}</string>
 			<key>name</key>
 			<string>string.regexp.livescript</string>
 			<key>patterns</key>
