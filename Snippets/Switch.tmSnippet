@@ -9,7 +9,7 @@
 	<key>name</key>
 	<string>Switch</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>tabTrigger</key>
 	<string>swi</string>
 	<key>uuid</key>

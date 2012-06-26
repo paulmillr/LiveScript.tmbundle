@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Symbol List: Method</string>
 	<key>scope</key>
-	<string>source.coffee meta.function.coffee</string>
+	<string>source.livescript meta.function.livescript</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>

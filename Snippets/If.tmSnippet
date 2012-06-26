@@ -8,7 +8,7 @@
 	<key>name</key>
 	<string>If</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>tabTrigger</key>
 	<string>if</string>
 	<key>uuid</key>

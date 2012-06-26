@@ -10,7 +10,7 @@ else
 	<key>name</key>
 	<string>If .. Else</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>tabTrigger</key>
 	<string>ife</string>
 	<key>uuid</key>

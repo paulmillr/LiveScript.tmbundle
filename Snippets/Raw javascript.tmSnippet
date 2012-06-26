@@ -9,7 +9,7 @@
 	<key>name</key>
 	<string>Raw javascript</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>uuid</key>
 	<string>422A59E7-FC36-4E99-B01C-6353515BB544</string>
 </dict>

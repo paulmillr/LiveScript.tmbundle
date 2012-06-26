@@ -152,7 +152,7 @@ comments.flatten.each { |c| puts "# #{c}" }
 	<key>output</key>
 	<string>replaceSelectedText</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>uuid</key>
 	<string>EE3293A5-3761-40BD-9CA8-DAAA176AA19E</string>
 </dict>

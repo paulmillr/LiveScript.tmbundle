@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>log</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>tabTrigger</key>
 	<string>log</string>
 	<key>uuid</key>

@@ -25,7 +25,7 @@ ${TM_COFFEE:=coffee} -s | pre
 	<key>output</key>
 	<string>showAsHTML</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>uuid</key>
 	<string>30395DAB-44A6-44F7-99E1-02D64621303A</string>
 </dict>

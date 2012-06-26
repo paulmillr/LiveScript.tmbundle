@@ -8,7 +8,7 @@
 	<key>name</key>
 	<string>Array Comprehension</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>tabTrigger</key>
 	<string>fora</string>
 	<key>uuid</key>

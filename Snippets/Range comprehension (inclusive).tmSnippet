@@ -8,7 +8,7 @@
 	<key>name</key>
 	<string>Range comprehension (inclusive)</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>tabTrigger</key>
 	<string>forr</string>
 	<key>uuid</key>

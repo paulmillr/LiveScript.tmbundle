@@ -27,7 +27,7 @@ EOS
 	<key>output</key>
 	<string>insertAsSnippet</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>uuid</key>
 	<string>68A86250-0280-11E0-A976-0800200C9A66</string>
 </dict>

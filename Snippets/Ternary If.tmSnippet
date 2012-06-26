@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>Ternary If</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>tabTrigger</key>
 	<string>ifte</string>
 	<key>uuid</key>

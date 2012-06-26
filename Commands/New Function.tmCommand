@@ -21,7 +21,6 @@ SNIPPET</string>
 	<string>insertAsSnippet</string>
 	<key>scope</key>
 	<string>source.coffee</string>
-	<key>uuid</key>
-	<string>192428A1-8684-4172-8728-225B4C9E532F</string>
+	<key>uuid</key.livescripting>192428A1-8684-4172-8728-225B4C9E532F</string>
 </dict>
 </plist>

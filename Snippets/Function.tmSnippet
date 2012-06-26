@@ -10,7 +10,7 @@
 	<key>name</key>
 	<string>Function</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>tabTrigger</key>
 	<string>fun</string>
 	<key>uuid</key>

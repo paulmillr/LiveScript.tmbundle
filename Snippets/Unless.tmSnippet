@@ -7,7 +7,7 @@
 	<key>name</key>
 	<string>Unless</string>
 	<key>scope</key>
-	<string>source.coffee</string>
+	<string>source.livescript</string>
 	<key>tabTrigger</key>
 	<string>unl</string>
 	<key>uuid</key>
