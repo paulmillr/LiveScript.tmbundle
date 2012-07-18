@@ -241,11 +241,11 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
-				\b(?&lt;![\.\$])(
+				\b(?&lt;![\.\$\-])(
 					break|by|catch|continue|else|finally|for|in|of|if|return|switch|
 					const|var|to|til|
 					then|throw|try|unless|when|while|until|loop|do|(?&lt;=for)\s+own
-				)(?!\s*:)\b
+				)(?!\-|\s*:)\b
 			</string>
 			<key>name</key>
 			<string>keyword.control.livescript</string>
@@ -253,10 +253,20 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
+				\b(?&lt;![\.\$\-])(
+					instanceof|new|delete|typeof|and|or|is|isnt|not
+				)(?!\-|\s*:)\b
+			</string>
+			<key>name</key>
+			<string>keyword.operator.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)
 				and=|or=|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?&gt;)|\+\+|\+|
 				~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
 				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|&amp;=|
-				\^=|\b(?&lt;![\.\$])(instanceof|new|delete|typeof|and|or|is|isnt|not)\b
+				\^=
 			</string>
 			<key>name</key>
 			<string>keyword.operator.livescript</string>
@@ -475,7 +485,7 @@
 	        .join("|")
       </string>
 			<key>match</key>
-			<string>(?x)\b(
+			<string>(?x)(?&lt;![.-])\b(
 				map|filter|reject|partition|find|each|head|tail|last|initial|empty|
 				values|keys|length|cons|append|join|reverse|fold|fold1|foldr|foldr1|
 				andList|orList|any|all|unique|sum|product|mean|concat|concatMap|
@@ -485,7 +495,7 @@
 				lines|unlines|words|unwords|max|min|negate|abs|signum|quot|rem|div|mod|
 				recip|pi|tau|exp|sqrt|ln|pow|sin|cos|tan|asin|acos|atan|atan2|truncate|
 				round|ceiling|floor|isItNaN|even|odd|gcd|lcm
-			)\b</string>
+			)\b(?![.-])</string>
 			<key>name</key>
 			<string>support.function.prelude.livescript</string>
 		</dict>
