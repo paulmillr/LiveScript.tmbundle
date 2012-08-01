@@ -13,7 +13,7 @@ function pre {
 	echo '&lt;/pre&gt;'
 }
 
-${TM_COFFEE:=coffee} -scp --bare | pre
+${TM_COFFEE:=livescript} -scp --bare | pre
 </string>
 	<key>fallbackInput</key>
 	<string>document</string>
@@ -28,6 +28,6 @@ ${TM_COFFEE:=coffee} -scp --bare | pre
 	<key>scope</key>
 	<string>source.livescript</string>
 	<key>uuid</key>
-	<string>2D4A1111-1740-4918-9490-90DF376BA72E</string>
+	<string>2D4A1111-1741-4918-9490-90DF376BA72E</string>
 </dict>
 </plist>
