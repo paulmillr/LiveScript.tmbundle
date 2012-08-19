@@ -3,8 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>for ${1:name} in ${2:array}
-  ${0:# body...}</string>
+	<string>[${0:# body...} for ${1:name} in ${2:array}]</string>
 	<key>name</key>
 	<string>Array Comprehension</string>
 	<key>scope</key>

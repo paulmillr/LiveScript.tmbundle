@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>for ${1:name} in [${2:start}...${3:finish}]${4: by ${5:step}}
+	<string>for ${1:name} in [${2:start} til ${3:finish}]${4: by ${5:step}}
   ${0:# body...}</string>
 	<key>name</key>
 	<string>Range comprehension (exclusive)</string>
