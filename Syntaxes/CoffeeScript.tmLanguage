@@ -49,7 +49,7 @@
 			<key>comment</key>
 			<string>match stuff like: a -&gt; … </string>
 			<key>match</key>
-			<string>(\([^()]*?\))\s*(!?[~-]{1,2}&gt;)|(\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
+			<string>(!?\([^()]*?\))\s*([~-]{1,2}&gt;)|(\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
 			<key>name</key>
 			<string>meta.inline.function.livescript</string>
 		</dict>
