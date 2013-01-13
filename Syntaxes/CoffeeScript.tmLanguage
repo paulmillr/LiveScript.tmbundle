@@ -242,9 +242,21 @@
 			<key>match</key>
 			<string>(?x)
 				\b(?&lt;![\.\$\-])(
-					break|by|catch|continue|else|finally|for|in|of|if|return|switch|
-					const|var|to|til|
-					then|throw|try|unless|case|when|while|until|loop|do|(?&lt;=for)\s+own
+		        :t(?:h(?:is|row|en)|ry|ypeof!?)
+		        |c(?:on(?:tinue|st)|a(?:se|tch)|lass)
+		        |i(?:n(?:stanceof)?|mp(?:ort(?:\s+all)?|lements)|[fs])
+		        |d(?:e(?:fault|lete|bugger)|o)
+		        |f(?:or(?:\s+own)?|inally|unction|rom|allthrough)
+		        |s(?:uper|witch)
+		        |e(?:lse|x(?:tends|port)|val)
+		        |a(?:nd|rguments)
+		        |n(?:ew|ot)
+		        |un(?:less|til)
+		        |w(?:hile|ith)
+		        |o[fr]|return|break|let|var|loop
+		        |match
+		        |t(?:hat|il|o|hen)
+		        |it|by|e
 				)(?!\-|\s*:)\b
 			</string>
 			<key>name</key>
@@ -291,7 +303,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([a-zA-Z\$_]([\w$.-])*\s*(?!\::)((:)|(=))(?!(\s*\(.*\))?\s*(!?[~-]{1,2}&gt;)))</string>
+			<string>([a-zA-Z\$_]([\w$.-])*\s*(?!\::)((:)|(=))\s*(?!(!?\s*\(.*\))?\s*(!?[~-]{1,2}&gt;)))</string>
 			<key>name</key>
 			<string>variable.assignment.livescript</string>
 		</dict>
@@ -372,7 +384,7 @@
 				(?=[a-zA-Z\$_])
 				(
 					[a-zA-Z\$_]([\w$.:-])*\s*
-					(?=[:=](\s*\(.*\))?\s*(!?[~-]{1,2}&gt;))
+					(?=[:=](\s*!?\s*\(.*\))?\s*(!?[~-]{1,2}&gt;))
 				)
 			</string>
 			<key>name</key>
@@ -398,7 +410,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?&lt;!\.)null(?!\s*[:=])\b</string>
+			<string>\b(?&lt;!\.)(null|void)(?!\s*[:=])\b</string>
 			<key>name</key>
 			<string>constant.language.null.livescript</string>
 		</dict>
@@ -735,6 +747,23 @@
 					<string>\}</string>
 					<key>name</key>
 					<string>source.livescript.embedded.source</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>$self</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>\#</string>
+					<key>match</key>
+					<string>#([a-zA-Z_-]+|@)</string>
+					<key>end</key>
+					<string></string>
+					<key>name</key>
+					<string>source.livescript.embedded.source.simple</string>
 					<key>patterns</key>
 					<array>
 						<dict>
