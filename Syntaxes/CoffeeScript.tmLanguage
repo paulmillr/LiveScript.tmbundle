@@ -244,7 +244,7 @@
 				\b(?&lt;![\.\$\-])(
 					break|by|catch|continue|else|finally|for|in|of|if|return|switch|
 					const|var|to|til|
-					then|throw|try|unless|when|while|until|loop|do|(?&lt;=for)\s+own
+					then|throw|try|unless|case|when|while|until|loop|do|(?&lt;=for)\s+own
 				)(?!\-|\s*:)\b
 			</string>
 			<key>name</key>
