@@ -524,7 +524,7 @@
 				zip|zipWith|zipAll|zipAllWith|compose|curry|partial|id|flip|fix|
 				lines|unlines|words|unwords|max|min|negate|abs|signum|quot|rem|div|mod|
 				recip|pi|tau|exp|sqrt|ln|pow|sin|cos|tan|asin|acos|atan|atan2|truncate|
-				round|ceiling|floor|isItNaN|even|odd|gcd|lcm|
+				round|ceiling|floor|isItNaN|even|odd|gcd|lcm
 			)\b(?![.-])</string>
 			<key>name</key>
 			<string>support.function.prelude.livescript</string>
