@@ -49,7 +49,7 @@
 			<key>comment</key>
 			<string>match stuff like: a -&gt; … </string>
 			<key>match</key>
-			<string>(!?\([^()]*?\))\s*([~-]{1,2}&gt;)|(\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
+			<string>(\s*\!?\(\s*[^()]*?\))\s*([~-]{1,2}&gt;)|\s*\!?(\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
 			<key>name</key>
 			<string>meta.inline.function.livescript</string>
 		</dict>
@@ -71,6 +71,18 @@
 			<string>(new)\s+(\w+(?:\.\w*)*)</string>
 			<key>name</key>
 			<string>meta.class.instance.constructor</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)
+				\b
+				p(?:ackage|r(?:ivate|otected)|ublic)
+		        |i(?:mplements|nterface)
+		        |enum|static|yield
+		       \b
+		   	</string>
+			<key>name</key>
+			<string>keyword.illegal.livescript</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -214,6 +226,12 @@
 			<string>comment.line.number-sign.livescript</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>/{2}(?![\s=/*+{}?]).*?[^\\]/[igmy]{0,4}(?![a-zA-Z0-9])/{2}</string>
+			<key>name</key>
+			<string>string.regexp.livescript</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>/{2}</string>
 			<key>end</key>
@@ -255,8 +273,8 @@
 		        |w(?:hile|ith)
 		        |o[fr]|return|break|let|var|loop
 		        |match
-		        |t(?:hat|il|o|hen)
-		        |it|by|e
+		        |t(?:il|o|hen|ry)
+		        |by
 				)(?!\-|\s*:)\b
 			</string>
 			<key>name</key>
@@ -277,7 +295,7 @@
 			<string>(?x)
 				and=|or=|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?&gt;)|\+\+|\+|
 				~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
-				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=|
+				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\s\.\s|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=|
 				\^=
 			</string>
 			<key>name</key>
@@ -303,7 +321,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([a-zA-Z\$_]([\w$.-])*\s*(?!\::)((:)|(=))\s*(?!(!?\s*\(.*\))?\s*(!?[~-]{1,2}&gt;)))</string>
+			<string>([a-zA-Z\$_]([\w$.-])*\s*(?!\::)((:)|(=))\s*(?!(\s*!?\s*\(.*\))?\s*(!?[~-]{1,2}&gt;)))</string>
 			<key>name</key>
 			<string>variable.assignment.livescript</string>
 		</dict>
@@ -495,7 +513,7 @@
 	        .filter(function(_) {return _.trim() !== '})
 	        .slice(2)
 	        .join("|")
-      </string>
+     		</string>
 			<key>match</key>
 			<string>(?x)(?&lt;![.-])\b(
 				map|filter|reject|partition|find|each|head|tail|last|initial|empty|
@@ -506,19 +524,25 @@
 				zip|zipWith|zipAll|zipAllWith|compose|curry|partial|id|flip|fix|
 				lines|unlines|words|unwords|max|min|negate|abs|signum|quot|rem|div|mod|
 				recip|pi|tau|exp|sqrt|ln|pow|sin|cos|tan|asin|acos|atan|atan2|truncate|
-				round|ceiling|floor|isItNaN|even|odd|gcd|lcm
+				round|ceiling|floor|isItNaN|even|odd|gcd|lcm|
 			)\b(?![.-])</string>
 			<key>name</key>
 			<string>support.function.prelude.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?x)((?&lt;=\.)(
+			<string>(?x)(?&lt;![.-])\b(that|it|e)\b</string>
+			<key>name</key>
+			<string>support.function.semireserved.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)((?&lt;=(\.|\]|\)))(
 				apply|call|concat|every|filter|forEach|from|hasOwnProperty|indexOf|
 				isPrototypeOf|join|lastIndexOf|map|of|pop|propertyIsEnumerable|push|
 				reduce(Right)?|reverse|shift|slice|some|sort|splice|to(Locale)?String|
 				unshift|valueOf
-			))\b</string>
+			))\b(?!-) </string>
 			<key>name</key>
 			<string>support.function.method.array.livescript</string>
 		</dict>
@@ -635,11 +659,11 @@
 						<key>0</key>
 						<dict>
 							<key>name</key>
-							<string>punctuation.definition.string.begin.livescript</string>
+							<string>string.quoted.single.livescript</string>
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>[\s,\}]</string>
+					<string>([\\)\s,\};])</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -648,7 +672,7 @@
 							<string>punctuation.definition.string.end.livescript</string>
 						</dict>
 					</dict>
-					<key>name</key>
+					<key>contentName</key>
 					<string>string.quoted.single.livescript</string>
 				</dict>
 			</array>
@@ -710,7 +734,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?&lt;!\\)(#).*$\n?</string>
+					<string>(?&lt;!\\)(#).*$\n(!?//)</string>
 					<key>name</key>
 					<string>comment.line.number-sign.livescript</string>
 				</dict>
