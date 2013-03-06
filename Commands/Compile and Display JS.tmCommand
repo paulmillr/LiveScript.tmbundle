@@ -7,13 +7,22 @@
 	<key>command</key>
 	<string>#!/bin/bash
 
+function highlight {
+  test `which pygmentize`
+  if [[ $? -eq 0 ]]; then
+    pygmentize -Onoclasses,nobackground=True -l js -f html
+  else
+    pre
+  fi
+}
+
 function pre {
 	echo -n '&lt;pre style="word-wrap: break-word;"&gt;'
 	perl -pe '$| = 1; s/&amp;/&amp;amp;/g; s/&lt;/&amp;lt;/g; s/&gt;/&amp;gt;/g; s/$\\n/&lt;br&gt;/'
 	echo '&lt;/pre&gt;'
 }
 
-${TM_COFFEE:=livescript} -scp --bare | pre
+${TM_COFFEE:=livescript} -scp --bare | highlight
 </string>
 	<key>fallbackInput</key>
 	<string>document</string>
