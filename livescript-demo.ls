@@ -9,6 +9,16 @@ dashes-identifiers = ->
   1-1 1- -1
   a- a
   a -a
+
+//abc #eaze #@ //
+//
+a #baze
+//
+
+publi
+if it is \abc and ($-y = !(a,) ->) ~= map //a#//
+then match that | _ | otherwise => implements $("#abc #@a")
+
 underscores_i$d = ->
 /regexp1/ and //regexp2//g
 'strings' and "strings" and \strings
@@ -26,6 +36,8 @@ copy = (from, to, callback) -->
   error <~ write file, data
   return callback error if error?
   callback()
+  
+$(\#gafBr).text $t.fmtFloat(efb.gaf)
 
 ->
 ~>

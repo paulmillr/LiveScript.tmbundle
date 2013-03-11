@@ -77,7 +77,7 @@
 			<string>(?x)
 				\b
 				p(?:ackage|r(?:ivate|otected)|ublic)
-		        |i(?:mplements|nterface)
+		        |interface
 		        |enum|static|yield
 		       \b
 		   	</string>
@@ -233,7 +233,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>/{2}</string>
+			<string>/{2}\n</string>
 			<key>end</key>
 			<string>/{2}[imgy]{0,4}</string>
 			<key>name</key>
@@ -242,11 +242,32 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#interpolated_livescript</string>
+					<string>#embedded_comment</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#embedded_comment</string>
+					<string>#interpolated_livescript</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>/{2}</string>
+			<key>end</key>
+			<string>/{2}[imgy]{0,4}</string>
+			<key>name</key>
+			<string>string.regexp.livescript</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>\\(x\h{2}|[0-2][0-7]{,2}|3[0-6][0-7]|37[0-7]?|[4-7][0-7]?|.)</string>
+					<key>name</key>
+					<string>constant.character.escape.livescript</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#interpolated_livescript</string>
 				</dict>
 			</array>
 		</dict>
@@ -270,8 +291,9 @@
 		        |a(?:nd|rguments)
 		        |n(?:ew|ot)
 		        |un(?:less|til)
-		        |w(?:hile|ith)
-		        |o[fr]|return|break|let|var|loop
+		        |w(?:hile|ith|hen)
+		        |o(?:f|r|therwise)
+		        |return|break|let|var|loop
 		        |match
 		        |t(?:il|o|hen|ry)
 		        |by
@@ -524,7 +546,7 @@
 				zip|zipWith|zipAll|zipAllWith|compose|curry|partial|id|flip|fix|
 				lines|unlines|words|unwords|max|min|negate|abs|signum|quot|rem|div|mod|
 				recip|pi|tau|exp|sqrt|ln|pow|sin|cos|tan|asin|acos|atan|atan2|truncate|
-				round|ceiling|floor|isItNaN|even|odd|gcd|lcm
+				round|ceiling|floor|isItNaN|even|odd|gcd|lcm|
 			)\b(?![.-])</string>
 			<key>name</key>
 			<string>support.function.prelude.livescript</string>
@@ -734,7 +756,8 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(?&lt;!\\)(#).*$\n(!?//)</string>
+
+					<string>(?&lt;!\\)(#).*$\n</string>
 					<key>name</key>
 					<string>comment.line.number-sign.livescript</string>
 				</dict>
