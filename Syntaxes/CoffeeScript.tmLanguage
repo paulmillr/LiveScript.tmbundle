@@ -242,7 +242,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#embedded_comment</string>
+					<string>#embedded_spaced_comment</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -758,6 +758,27 @@
 					<key>match</key>
 
 					<string>(?&lt;!\\)(#).*$\n</string>
+					<key>name</key>
+					<string>comment.line.number-sign.livescript</string>
+				</dict>
+			</array>
+		</dict>
+		<key>embedded_spaced_comment</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.livescript</string>
+						</dict>
+					</dict>
+					<key>match</key>
+
+					<string>(?&lt;!\\)(#\s).*$\n</string>
 					<key>name</key>
 					<string>comment.line.number-sign.livescript</string>
 				</dict>
