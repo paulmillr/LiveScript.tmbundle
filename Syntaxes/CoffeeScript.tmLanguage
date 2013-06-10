@@ -784,13 +784,25 @@
 				</dict>
 			</array>
 		</dict>
+		<key>constructor_variable</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>([a-zA-Z$_][\w$-]*)(@{2})([a-zA-Z$_][\w$-]*)?</string>
+					<key>name</key>
+					<string>variable.other.readwrite.constructor.livescript</string>
+				</dict>
+			</array>
+		</dict>
 		<key>instance_variable</key>
 		<dict>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(@)([a-zA-Z$_][\w$-]*)?</string>
+					<string>(?&lt;!\S)(@)([a-zA-Z$_][\w$-]*)?</string>
 					<key>name</key>
 					<string>variable.other.readwrite.instance.livescript</string>
 				</dict>
@@ -827,7 +839,7 @@
 					<key>begin</key>
 					<string>\#</string>
 					<key>match</key>
-					<string>#([a-zA-Z_-]+|@)</string>
+					<string>#([a-zA-Z_-]+|@@?)</string>
 					<key>end</key>
 					<string></string>
 					<key>name</key>
