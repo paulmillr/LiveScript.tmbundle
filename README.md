@@ -5,15 +5,13 @@ Initially based on coffeescript.tmbundle.
 
 ## Installation
 
-Pop open your favorite shell and run...
+* TextMate: Pop open your favorite shell and run...
 
     cd ~/Library/Application\ Support/TextMate/Bundles/
     git clone git://github.com/paulmillr/LiveScript.tmbundle.git
     osascript -e 'tell app "TextMate" to reload bundles'
 
-It's fine if TextMate is open.
-
-![](https://a248.e.akamai.net/camo.github.com/6e3e677919dbfcf19b4e718c406938c9ab2d2ce8/687474703a2f2f662e636c2e6c792f6974656d732f3265324c3273324f305632793172326e306c31792f53637265656e25323053686f74253230323031322d30362d32362532306174253230352e32342e3135253230504d2e706e67)
+* Sublime: Install [Package Control](http://wbond.net/sublime_packages/package_control) and install bundle there.
 
 ## License
 The MIT License (MIT)
