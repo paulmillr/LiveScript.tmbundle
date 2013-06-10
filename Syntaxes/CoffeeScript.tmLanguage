@@ -317,7 +317,7 @@
 			<string>(?x)
 				and=|or=|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?&gt;)|\+\+|\+|
 				~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
-				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\s\.\s|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=|
+				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\s\.\s|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=|\(\.|\.\)|
 				\^=
 			</string>
 			<key>name</key>
@@ -675,7 +675,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\\([\\)\s,\};])?</string>
+					<string>\\([\\)\s,\};\]])?</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -685,7 +685,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>([\\)\s,\};])</string>
+					<string>([\\)\s,\};\]])</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
