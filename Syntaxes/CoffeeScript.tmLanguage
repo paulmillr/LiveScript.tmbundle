@@ -581,7 +581,7 @@
 			<string>(?x)((?&lt;=Object\.)(
 				create|definePropert(ies|y)|freeze|getOwnProperty(Descriptors?|Names)|
 				getProperty(Descriptor|Names)|getPrototypeOf|is(Extensible|Frozen|Sealed)?|
-				isnt|keys|preventExtensions|seal
+				keys|preventExtensions|seal
 			))\b</string>
 			<key>name</key>
 			<string>support.function.static.object.livescript</string>
@@ -675,7 +675,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\\</string>
+					<string>\\([\\)\s,\};])?</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
