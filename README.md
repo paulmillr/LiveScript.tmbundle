@@ -3,6 +3,7 @@ A [TextMate](http://macromates.com), Sublime Text and Chocolat bundle for [LiveS
 
 Initially based on coffeescript.tmbundle.
 
+
 ## Installation
 
 * TextMate: Pop open your favorite shell and run...
@@ -12,6 +13,7 @@ Initially based on coffeescript.tmbundle.
     osascript -e 'tell app "TextMate" to reload bundles'
 
 * Sublime: Install [Package Control](http://wbond.net/sublime_packages/package_control) and install bundle there.
+
 
 ## License
 The MIT License (MIT)
