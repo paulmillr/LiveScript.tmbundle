@@ -280,8 +280,8 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
-				\b(?&lt;![\.\$\-])(
-		        :t(?:h(?:is|row|en)|ry|ypeof!?)
+				\b(?&lt;![\.\$\-])(?:
+		        t(?:h(?:is|row|en)|ry|ypeof!?|il|o)
 		        |c(?:on(?:tinue|st)|a(?:se|tch)|lass)
 		        |i(?:n(?:stanceof)?|mp(?:ort(?:\s+all)?|lements)|[fs])
 		        |d(?:e(?:fault|lete|bugger)|o)
@@ -295,7 +295,6 @@
 		        |o(?:f|r|therwise)
 		        |return|break|let|var|loop
 		        |match
-		        |t(?:il|o|hen|ry)
 		        |by
 				)(?!\-|\s*:)\b
 			</string>
