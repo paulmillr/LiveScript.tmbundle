@@ -542,10 +542,10 @@
 				andList|orList|any|all|unique|sum|product|mean|concat|concatMap|
 				maximum|minimum|scan|scan1|scar|scanr1|replicate|take|drop|splitAt|
 				takeWhile|dropWhile|span|breakIt|listToObj|objToFunc|
-				zip|zipWith|zipAll|zipAllWith|compose|curry|partial|id|flip|fix|
+				zip|zipWith|zipAll|zipAllWith|compose|curry|partial|flip|fix|
 				lines|unlines|words|unwords|max|min|negate|abs|signum|quot|rem|div|mod|
 				recip|pi|tau|exp|sqrt|ln|pow|sin|cos|tan|asin|acos|atan|atan2|truncate|
-				round|ceiling|floor|isItNaN|even|odd|gcd|lcm|
+				round|ceiling|floor|isItNaN|even|odd|gcd|lcm|disabled__id
 			)\b(?![.-])</string>
 			<key>name</key>
 			<string>support.function.prelude.livescript</string>
@@ -859,7 +859,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\$)(([0-9]+r[0-9_]+)|((16r|0[xX])[0-9a-fA-F_]+)|([0-9]+(\.[0-9_]+)?(e[+\-]?[0-9_]+)?)[_a-zA-Z]*)</string>
+					<string>(?&lt;![\$@a-z])(([0-9]+r[0-9_]+)|((16r|0[xX])[0-9a-fA-F_]+)|([0-9]+(\.[0-9_]+)?(e[+\-]?[0-9_]+)?)[_a-zA-Z]*)</string>
 					<key>name</key>
 					<string>constant.numeric.livescript</string>
 				</dict>
