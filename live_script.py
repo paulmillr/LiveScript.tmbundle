@@ -15,10 +15,10 @@ class LiveScript(sublime_plugin.TextCommand):
         text = text.encode('utf8')
         window = self.view.window()
         js, error = self._compile(text)
-        self._write_to_window(window, js, error)
+        self._write_to_window(window, edit, js, error)
 
     def _args(self):
-        return self.LIVESCRIPT, '--stdin', '--compile'
+        return self.LIVESCRIPT, '--stdin', '--compile', '--bare'
 
     def _compile(self, text):
         path = self._path()
@@ -54,21 +54,20 @@ class LiveScript(sublime_plugin.TextCommand):
 
         return self.view.substr(region)
 
-    def _write_to_panel(self, panel, text):
+    def _write_to_panel(self, panel, edit, text):
         panel.set_read_only(False)
-        edit = panel.begin_edit()
         panel.insert(edit, 0, text)
-        panel.end_edit(edit)
         panel.sel().clear()
         panel.set_read_only(True)
 
-    def _write_to_window(self, window, js, error):
+    def _write_to_window(self, window, edit, js, error):
         panel = window.get_output_panel(self.WINDOW_NAME)
         panel.set_syntax_file('Packages/JavaScript/JavaScript.tmLanguage')
 
-        text = js or str(error)
-        text.decode('utf8')
-        self._write_to_panel(panel, text)
+        text = js or error
+        text = text.decode('utf8')
+
+        self._write_to_panel(panel, edit, text)
 
         window.run_command('show_panel',
                            {'panel': 'output.{0}'.format(self.WINDOW_NAME)})
