@@ -49,7 +49,7 @@
 			<key>comment</key>
 			<string>match stuff like: a -&gt; … </string>
 			<key>match</key>
-			<string>(\s*\!?\(\s*[^()]*?\))\s*([~-]{1,2}&gt;)|\s*\!?(\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
+			<string>(\s*\!?\(\s*[^()]*?\))\s*(!?[~-]{1,2}&gt;)|\s*\!?(\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
 			<key>name</key>
 			<string>meta.inline.function.livescript</string>
 		</dict>
@@ -513,7 +513,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>((?&lt;=console\.)(debug|warn|info|log|error|time|timeEnd|assert))\b</string>
+			<string>((?&lt;=console\.)(debug|warn|info|log|error|time(End|-end)|assert))\b</string>
 			<key>name</key>
 			<string>support.function.console.livescript</string>
 		</dict>
@@ -538,14 +538,18 @@
 			<key>match</key>
 			<string>(?x)(?&lt;![.-])\b(
 				map|filter|reject|partition|find|each|head|tail|last|initial|empty|
-				values|keys|length|cons|append|join|reverse|fold|fold1|foldr|foldr1|
-				andList|orList|any|all|unique|sum|product|mean|concat|concatMap|
-				maximum|minimum|scan|scan1|scar|scanr1|replicate|take|drop|splitAt|
-				takeWhile|dropWhile|span|breakIt|listToObj|objToFunc|
-				zip|zipWith|zipAll|zipAllWith|compose|curry|partial|flip|fix|
+				values|keys|length|cons|append|join|reverse|fold(l|r)?1?|unfoldr|
+				and(List|-list)|or(List|-list)|any|all|unique|sum|product|mean|compact|
+				concat(Map|-map)?|maximum|minimum|scan(l|r)?1?|replicate|slice|apply|
+				split(At|-at)?|take(While|-while)?|drop(While|-while)?|span|first|
+				break(It|-it)|list(ToObj|-to-obj)|obj(ToFunc|-to-func)|
+				pairs(ToObj|-to-obj)|obj(ToPairs|-to-pairs|ToLists|-to-lists)|
+				zip(All|-all)?(With|-with)?|compose|curry|partial|flip|fix|
+				sort(With|-with|By|-by)?|group(By|-by)|break(List|-list|Str|-str)|
+				difference|intersection|union|average|flatten|chars|unchars|repeat|
 				lines|unlines|words|unwords|max|min|negate|abs|signum|quot|rem|div|mod|
 				recip|pi|tau|exp|sqrt|ln|pow|sin|cos|tan|asin|acos|atan|atan2|truncate|
-				round|ceiling|floor|isItNaN|even|odd|gcd|lcm|disabled__id
+				round|ceiling|floor|is(It|-it)NaN|even|odd|gcd|lcm|disabled__id
 			)\b(?![.-])</string>
 			<key>name</key>
 			<string>support.function.prelude.livescript</string>
@@ -559,10 +563,12 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)((?&lt;=(\.|\]|\)))(
-				apply|call|concat|every|filter|forEach|from|hasOwnProperty|indexOf|
-				isPrototypeOf|join|lastIndexOf|map|of|pop|propertyIsEnumerable|push|
-				reduce(Right)?|reverse|shift|slice|some|sort|splice|to(Locale)?String|
-				unshift|valueOf
+				apply|call|concat|every|filter|for(Each|-each)|
+				from|has(Own|-own)(Property|-property)|index(Of|-of)|
+				is(Prototype|-prototype)(Of|-of)|join|last(Index|-index)(Of|-of)|
+				map|of|pop|property(Is|-is)(Enumerable|-enumerable)|push|
+				reduce(Right|-right)?|reverse|shift|slice|some|sort|
+				splice|to(Locale|-locale)?(String|-string)|unshift|valueOf
 			))\b(?!-) </string>
 			<key>name</key>
 			<string>support.function.method.array.livescript</string>
@@ -578,9 +584,11 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)((?&lt;=Object\.)(
-				create|definePropert(ies|y)|freeze|getOwnProperty(Descriptors?|Names)|
-				getProperty(Descriptor|Names)|getPrototypeOf|is(Extensible|Frozen|Sealed)?|
-				keys|preventExtensions|seal
+				create|define(Propert|-propert)(ies|y)|freeze|
+				get(Own|-own)(Property|-property)(Descriptors?|Names)|
+				get(Property|-property)(Descriptor|Names)|getPrototypeOf|
+				is((Extensible|-extensible)|(Frozen|-frozen)|(Sealed|-sealed))?|
+				keys|prevent(Extensions|-extensions)|seal
 			))\b</string>
 			<key>name</key>
 			<string>support.function.static.object.livescript</string>
@@ -598,7 +606,7 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)((?&lt;=Number\.)(
-				is(Finite|Integer|NaN)|toInteger
+				is(Finite|Integer|NaN)|to(Integer|-integer)
 			))\b</string>
 			<key>name</key>
 			<string>support.function.static.number.livescript</string>
