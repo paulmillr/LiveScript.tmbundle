@@ -36,7 +36,7 @@ copy = (from, to, callback) -->
   error <~ write file, data
   return callback error if error?
   callback()
-  
+
 $(\#gafBr).text $t.fmtFloat(efb.gaf)
 
 ->
@@ -45,3 +45,5 @@ $(\#gafBr).text $t.fmtFloat(efb.gaf)
 -->
 # Comment
 /* Comment */
+# error, data <- read file
+/* error, data <- read file */
