@@ -22,7 +22,7 @@ function pre {
 	echo '&lt;/pre&gt;'
 }
 
-${TM_COFFEE:=livescript} -scp --bare | highlight
+${TM_LIVESCRIPT:=livescript} -scp --bare | highlight
 </string>
 	<key>fallbackInput</key>
 	<string>document</string>
