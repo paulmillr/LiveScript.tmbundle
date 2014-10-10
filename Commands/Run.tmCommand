@@ -14,7 +14,7 @@ function pre {
 }
 
 
-${TM_COFFEE:=livescript} -s | pre
+${TM_LIVESCRIPT:=livescript} -s | pre
 </string>
 	<key>input</key>
 	<string>selection</string>
