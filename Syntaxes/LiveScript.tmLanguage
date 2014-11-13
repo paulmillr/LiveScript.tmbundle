@@ -548,6 +548,80 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>\b(Infinity|NaN|undefined)\b</string>
+			<key>name</key>
+			<string>constant.language.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\;</string>
+			<key>name</key>
+			<string>punctuation.terminator.statement.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>,[ |\t]*</string>
+			<key>name</key>
+			<string>meta.delimiter.object.comma.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\.</string>
+			<key>name</key>
+			<string>meta.delimiter.method.period.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\{|\}</string>
+			<key>name</key>
+			<string>meta.brace.curly.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\(|\)</string>
+			<key>name</key>
+			<string>meta.brace.round.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\[|\]\s*</string>
+			<key>name</key>
+			<string>meta.brace.square.livescript</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#instance_variable</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#backslash_string</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#single_quoted_string</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#double_quoted_string</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#numeric</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.function-call.livescript</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(@|@@|[$\w\-]*[$\w]+)`?(\??\!|\?? +|\s*[(])(?!((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;] |[`]|&amp;&amp;|[.][^.]|=>|\/\s+|\||\|\||[^ ]+=|\-\-|\+\+|\|&gt;|&lt;\||\s*($|#|/\*))</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>((?&lt;=console\.)(debug|warn|info|log|error|time(End|-end)|assert))\b</string>
 			<key>name</key>
 			<string>support.function.console.livescript</string>
@@ -645,80 +719,6 @@
 			))\b</string>
 			<key>name</key>
 			<string>support.function.static.number.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(Infinity|NaN|undefined)\b</string>
-			<key>name</key>
-			<string>constant.language.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\;</string>
-			<key>name</key>
-			<string>punctuation.terminator.statement.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>,[ |\t]*</string>
-			<key>name</key>
-			<string>meta.delimiter.object.comma.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\.</string>
-			<key>name</key>
-			<string>meta.delimiter.method.period.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\{|\}</string>
-			<key>name</key>
-			<string>meta.brace.curly.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\(|\)</string>
-			<key>name</key>
-			<string>meta.brace.round.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\[|\]\s*</string>
-			<key>name</key>
-			<string>meta.brace.square.livescript</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#instance_variable</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#backslash_string</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#single_quoted_string</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#double_quoted_string</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#numeric</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>meta.function-call.livescript</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(@|@@|[$\w\-]*[$\w]+)`?(\??\!|\?? +|\s*[(])(?!((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;] |[`]|&amp;&amp;|[.][^.]|=>|\/\s+|\||\|\||[^ ]+=|\-\-|\+\+|\|&gt;|&lt;\||\s*($|#|/\*))</string>
 		</dict>
 		<!-- Every other word is a variable -->
 		<dict>
