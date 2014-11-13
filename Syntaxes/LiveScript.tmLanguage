@@ -300,6 +300,12 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>&lt;\||\|&gt;</string>
+			<key>name</key>
+			<string>keyword.operator.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(?x)
 				\b(?&lt;![\.\$\-])(?:
 				return|break|continue|throw
@@ -676,12 +682,6 @@
 			<string>\| _</string>
 			<key>name</key>
 			<string>keyword.control.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>&lt;\||\|&gt;</string>
-			<key>name</key>
-			<string>keyword.operator.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
