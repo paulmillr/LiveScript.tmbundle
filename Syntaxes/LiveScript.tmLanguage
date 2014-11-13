@@ -300,7 +300,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>&lt;\||\|&gt;|_\b</string>
+			<string>&lt;\||\|&gt;\b</string>
 			<key>name</key>
 			<string>keyword.operator.livescript</string>
 		</dict>
@@ -665,7 +665,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?x)(?&lt;![.-])\b(that|it|e)\b</string>
+			<string>(?x)(?&lt;![.-])\b(that|it|e|_)\b</string>
 			<key>name</key>
 			<string>support.function.semireserved.livescript</string>
 		</dict>
