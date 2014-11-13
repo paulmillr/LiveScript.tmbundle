@@ -88,7 +88,7 @@
 			<key>comment</key>
 			<string>match stuff like: a -&gt; … </string>
 			<key>match</key>
-			<string>(\s*\!?\(\s*[^()]*?\))\s*(!?[~-]{1,2}&gt;)|\s*\!?(\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
+			<string>(\s*\!?\(\s*[^()]*?\))\s*(!?[~-]{1,2}&gt;\*?)|\s*\!?(\b\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
 			<key>name</key>
 			<string>meta.inline.function.livescript</string>
 		</dict>
