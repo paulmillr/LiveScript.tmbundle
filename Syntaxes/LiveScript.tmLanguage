@@ -370,7 +370,7 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.separator.key-value</string>
+					<string>punctuation.separator.key-value, keyword.operator.livescript</string>
 				</dict>
 				<key>4</key>
 				<dict>
