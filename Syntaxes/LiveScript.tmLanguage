@@ -88,9 +88,26 @@
 			<key>comment</key>
 			<string>match stuff like: a -&gt; … </string>
 			<key>match</key>
-			<string>(\s*\!?\(\s*[^()]*?\))\s*(!?[~-]{1,2}&gt;\*?)|\s*\!?(\b\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
+			<string>\s*(\!?\(\s*[^()]*?\))\s*(!?[~-]{1,2}&gt;\*?)|\s*\!?(\b\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
 			<key>name</key>
 			<string>meta.inline.function.livescript</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.livescript</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.livescript</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(function)\s+([$\w\-]*[$\w]+)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -274,6 +291,22 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
+				\b(?&lt;![\.\$\-])(
+					instanceof|new|delete|typeof|and|or|is|isnt|not
+				)(?!\-|\s*:)\b
+			</string>
+			<key>name</key>
+			<string>keyword.operator.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>&lt;\||\|&gt;|_\b</string>
+			<key>name</key>
+			<string>keyword.operator.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)
 				\b(?&lt;![\.\$\-])(?:
 				return|break|continue|throw
 				|try|if|while|for|for\s+own|switch|unless|until
@@ -286,27 +319,18 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>=&gt;</string>
+			<string>=&gt;|\|(?![.])( _)?</string>
 			<key>name</key>
 			<string>keyword.control.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>(?x)
-				\b(?&lt;![\.\$\-])(
-					instanceof|new|delete|typeof|and|or|is|isnt|not
-				)(?!\-|\s*:)\b
-			</string>
-			<key>name</key>
-			<string>keyword.operator.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?x)
 				and=|or=|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?&gt;)|\+\+|\+|
 				~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
-				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\s\.\s|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=|\(\.|\.\)|
-				\^=
+				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\s\.\s|\?|\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=|\(\.|\.\)
+				|\^=
+				|\|
 			</string>
 			<key>name</key>
 			<string>keyword.operator.livescript</string>
@@ -343,21 +367,19 @@
 					<key>name</key>
 					<string>variable.assignment.livescript</string>
 				</dict>
-				<key>4</key>
+				<key>3</key>
 				<dict>
 					<key>name</key>
 					<string>punctuation.separator.key-value</string>
 				</dict>
-				<key>5</key>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.operator.livescript</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([a-zA-Z\$_]([\w$.-])*\s*(?!\::)((:)|(=[^>]))\s*(?!(\s*!?\s*\(.*\))?\s*(!?[~-]{1,2}&gt;\*?)))</string>
-			<key>name</key>
-			<string>variable.assignment.livescript</string>
+			<string>([a-zA-Z\$_](?:[\w$.-])*)\s*(?!\::)((:)|(=[^>]))\s*(?!(\s*!?\s*\(.*\))?\s*(!?[~-]{1,2}&gt;\*?))</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -696,7 +718,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(@|@@|[$\w\-]*[$\w]+)`?(\??\!|\?? +)(?!((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;] |[`]|&amp;&amp;|[.][^.]|=>|\/\s+|\|\||[^ ]+=|\-\-|\+\+|\|&gt;|&lt;\|)</string>
+			<string>(@|@@|[$\w\-]*[$\w]+)`?(\??\!|\?? +|\s*[(])(?!((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;] |[`]|&amp;&amp;|[.][^.]|=>|\/\s+|\||\|\||[^ ]+=|\-\-|\+\+|\|&gt;|&lt;\||\s*($|#|/\*))</string>
 		</dict>
 		<!-- Every other word is a variable -->
 		<dict>
@@ -899,7 +921,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![\$@a-zA-Z_])(([0-9]+r[0-9_]+)|((16r|0[xX])[0-9a-fA-F_]+)|([0-9]+(\.[0-9_]+)?(e[+\-]?[0-9_]+)?)[_a-zA-Z]*)</string>
+					<string>(?&lt;![\$@a-zA-Z_])(([0-9]+r[0-9_]+)|((16r|0[xX])[0-9a-fA-F_]+)|([0-9]+(\.[0-9]+[0-9_]*)?(e[+\-]?[0-9_]+)?)[_a-zA-Z0-9]*)</string>
 					<key>name</key>
 					<string>constant.numeric.livescript</string>
 				</dict>
