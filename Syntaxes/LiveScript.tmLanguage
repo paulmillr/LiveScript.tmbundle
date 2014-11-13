@@ -698,6 +698,13 @@
 			<key>match</key>
 			<string>(@|@@|[$\w\-]*[$\w]+)`?(\??\!|\?? +)(?!((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;] |[`]|&amp;&amp;|[.][^.]|=>|\/\s+|\|\||[^ ]+=|\-\-|\+\+|\|&gt;|&lt;\|)</string>
 		</dict>
+		<!-- Every other word is a variable -->
+		<dict>
+			<key>match</key>
+			<string>[\$\w][\w-]*</string>
+			<key>name</key>
+			<string>variable.other.livescript</string>
+		</dict>
 	</array>
 	<key>repository</key>
 	<dict>
