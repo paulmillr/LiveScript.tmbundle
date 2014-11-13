@@ -878,7 +878,7 @@
 					<key>begin</key>
 					<string>\#</string>
 					<key>match</key>
-					<string>#([a-zA-Z$_-]+|@@?)</string>
+					<string>#([a-zA-Z$_-]+|@)</string>
 					<key>end</key>
 					<string></string>
 					<key>name</key>
