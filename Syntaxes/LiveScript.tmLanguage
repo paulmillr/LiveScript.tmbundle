@@ -612,11 +612,28 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
+					<string>keyword.operator.livescript</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
 					<string>meta.function-call.livescript</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.livescript</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(@|@@|[$\w\-]*[$\w]+)`?(\??\!|\?? +|\s*[(])(?!((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;] |[`]|&amp;&amp;|[.][^.]|=>|\/\s+|\||\|\||[^ ]+=|\-\-|\+\+|\|&gt;|&lt;\||\s*($|#|/\*))</string>
+			<string>(?x)
+				(`)?
+				(@|@@|[$\w\-]*[$\w]+)
+				(?:
+					(?:(`|\??\!)|[(])
+					|(\??\ )(?!((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not\ in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;]\ |[`]|&amp;&amp;|[.][^.]|=>|\/\ +|\||\|\||[^\ ]+=|\-\-|\+\+|\|&gt;|&lt;\||\s*(\n|\#|/\*))
+				)
+				</string>
 		</dict>
 		<dict>
 			<key>match</key>
