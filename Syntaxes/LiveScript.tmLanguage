@@ -444,31 +444,31 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>!?[~-]{1,2}&gt;</string>
+			<string>!?[~-]{1,2}&gt;\*?</string>
 			<key>name</key>
 			<string>storage.type.function.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?&lt;!\.)(true|on|yes)(?!\s*[:=])\b</string>
+			<string>\b(?&lt;!\.)(true|on|yes)(?!\s*:)\b</string>
 			<key>name</key>
 			<string>constant.language.boolean.true.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?&lt;!\.)(false|off|no)(?!\s*[:=])\b</string>
+			<string>\b(?&lt;!\.)(false|off|no)(?!\s*:)\b</string>
 			<key>name</key>
 			<string>constant.language.boolean.false.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?&lt;!\.)(null|void)(?!\s*[:=])\b</string>
+			<string>\b(?&lt;!\.)(null|void)(?!\s*:)\b</string>
 			<key>name</key>
 			<string>constant.language.null.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?&lt;!\.)(super|this|extends)(?!\s*[:=])\b</string>
+			<string>\b(?&lt;!\.)(super|this|extends)(?!\s*:)\b</string>
 			<key>name</key>
 			<string>variable.language.livescript</string>
 		</dict>
