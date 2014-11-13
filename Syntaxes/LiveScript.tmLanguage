@@ -113,13 +113,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?x)
-				\b
-				p(?:ackage|r(?:ivate|otected)|ublic)
-		        |interface
-		        |enum|static|yield
-		       \b
-		   	</string>
+			<string>\b(package|private|protected|public|interface|enum|static)(?!-)\b</string>
 			<key>name</key>
 			<string>keyword.illegal.livescript</string>
 		</dict>
@@ -281,23 +275,18 @@
 			<key>match</key>
 			<string>(?x)
 				\b(?&lt;![\.\$\-])(?:
-		        t(?:h(?:is|row|en)|ry|ypeof!?|il|o)
-		        |c(?:on(?:tinue|st)|a(?:se|tch)|lass)
-		        |i(?:n(?:stanceof)?|mp(?:ort(?:\s+all)?|lements)|[fs])
-		        |d(?:e(?:fault|lete|bugger)|o)
-		        |f(?:or(?:\s+own)?|inally|unction|rom|allthrough)
-		        |s(?:uper|witch)
-		        |e(?:lse|x(?:tends|port)|val)
-		        |a(?:nd|rguments)
-		        |n(?:ew|ot)
-		        |un(?:less|til)
-		        |w(?:hile|ith|hen)
-		        |o(?:f|r|therwise)
-		        |return|break|let|var|loop
-		        |match
-		        |by
+				return|break|continue|throw
+				|try|if|while|for|for\s+own|switch|unless|until
+				|catch|finally|else|nobreak|case|default|fallthrough|when|otherwise|then
+				|yield
 				)(?!\-|\s*:)\b
 			</string>
+			<key>name</key>
+			<string>keyword.control.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>=&gt;</string>
 			<key>name</key>
 			<string>keyword.control.livescript</string>
 		</dict>
@@ -321,6 +310,30 @@
 			</string>
 			<key>name</key>
 			<string>keyword.operator.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)
+				\b(?&lt;![\.\$\-])(?:
+				this|throw|then|try|typeof!?|til|to
+				|continue|const|case|catch|class
+				|in|instanceof|import|import\s+all|implements|if|is
+				|default|delete|debugger|do
+				|for|for\s+own|finally|function|from|fallthrough
+				|super|switch
+				|else|nobreak|extends|export|eval
+				|and|arguments
+				|new|not
+				|unless|until
+				|while|with|when
+				|of|or|otherwise
+				|let|var|loop
+				|match
+				|by|yield
+				)(?!\-|\s*:)\b
+			</string>
+			<key>name</key>
+			<string>keyword.other.livescript</string>
 		</dict>
 		<dict>
 			<key>captures</key>
