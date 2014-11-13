@@ -300,12 +300,6 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>&lt;\||\|&gt;</string>
-			<key>name</key>
-			<string>keyword.operator.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
 			<string>(?x)
 				\b(?&lt;![\.\$\-])(?:
 				return|break|continue|throw
@@ -319,18 +313,11 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>=&gt;|\|(?![.])( _)?</string>
-			<key>name</key>
-			<string>keyword.control.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
 			<string>(?x)
 				and=|or=|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?&gt;)|\+\+|\+|
 				~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
 				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\s\.\s|\?|\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=|\(\.|\.\)
 				|\^=
-				|\|
 			</string>
 			<key>name</key>
 			<string>keyword.operator.livescript</string>
@@ -626,14 +613,87 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(?x)
-				(`)?
-				(@|@@|[$\w\-]*[$\w]+)
-				(?:
-					(?:(`|\??\!)|[(])
-					|(\??\ )(?!((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not\ in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;]\ |[`]|&amp;&amp;|[.][^.]|=>|\/\ +|\||\|\||[^\ ]+=|\-\-|\+\+|\|&gt;|&lt;\||\s*(\n|\#|/\*))
-				)
-				</string>
+			<string>(`)(@|@@|[$\w\-]*[$\w]+)(`)</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.livescript</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.function-call.livescript</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(\|&gt;)\s*(@|@@|[$\w\-]*[$\w]+)</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.livescript</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.function-call.livescript</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.livescript</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>()(@|@@|[$\w\-]*[$\w]+)(?:(\??\!)|[(])</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.function-call.livescript</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.livescript</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(@|@@|[$\w\-]*[$\w]+)(\?)? (?!\s*(((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;] |[`!?]|&amp;&amp;|[.][^.]|=>|\/ +|\||\|\||[^ ]+=|\-\-|\+\+|\|&gt;|&lt;|\||\n|\#|/\*))</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\| _</string>
+			<key>name</key>
+			<string>keyword.control.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>&lt;\||\|&gt;</string>
+			<key>name</key>
+			<string>keyword.operator.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>=&gt;|\|(?![.])</string>
+			<key>name</key>
+			<string>keyword.control.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\|</string>
+			<key>name</key>
+			<string>keyword.operator.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
