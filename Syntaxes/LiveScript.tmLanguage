@@ -921,7 +921,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\S)(@)</string>
+					<string>(?&lt;![$\w\-])(@)</string>
 					<key>name</key>
 					<string>variable.other.readwrite.instance.livescript</string>
 				</dict>
