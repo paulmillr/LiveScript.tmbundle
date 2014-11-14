@@ -258,7 +258,7 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
-				\b(?&lt;![\.\$\-])(
+				\b(?&lt;![\.\$\-@])(
 					instanceof|new|delete|typeof|and|or|is|isnt|not
 				)(?!\-|\s*:)\b
 			</string>
@@ -280,7 +280,7 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
-				\b(?&lt;![\.\$\-])(?:
+				\b(?&lt;![\.\$\-@])(?:
 				return|break|continue|throw
 				|try|if|while|for|for\s+own|switch|unless|until
 				|catch|finally|else|nobreak|case|default|fallthrough|when|otherwise|then
@@ -304,7 +304,7 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
-				\b(?&lt;![\.\$\-])(?:
+				\b(?&lt;![\.\$\-@])(?:
 				function
 				)(?!\-|\s*:)\b
 			</string>
@@ -314,7 +314,7 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
-				\b(?&lt;![\.\$\-])(?:
+				\b(?&lt;![\.\$\-@])(?:
 				this|throw|then|try|typeof!?|til|to
 				|continue|const|case|catch|class
 				|in|instanceof|import|import\s+all|implements|if|is
