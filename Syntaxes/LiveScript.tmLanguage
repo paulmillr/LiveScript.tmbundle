@@ -98,7 +98,7 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.other.livescript</string>
+					<string>storage.type.function.livescript</string>
 				</dict>
 				<key>2</key>
 				<dict>
@@ -107,7 +107,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(function)\s+([$\w\-]*[$\w]+)</string>
+			<string>((?:!|~|!~|~!)?function\*?)\s+([$\w\-]*[$\w]+)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -333,6 +333,16 @@
 			</string>
 			<key>name</key>
 			<string>keyword.operator.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)
+				\b(?&lt;![\.\$\-])(?:
+				function
+				)(?!\-|\s*:)\b
+			</string>
+			<key>name</key>
+			<string>storage.type.function.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
