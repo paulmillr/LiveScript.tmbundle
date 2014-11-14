@@ -658,7 +658,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(@|@@|[$\w\-]*[$\w]+)(\?)? (?!\s*(((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;] |[`]|&amp;&amp;|[.][^.]|=>|\/ +|\||\|\||[^ ]+=|\-\-|\+\+|\|&gt;|&lt;|\||\n|\#|/\*))</string>
+			<string>(@|@@|[$\w\-]*[$\w]+)(\?)? (?!\s*(((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import)\b)|[=:.*\/+\-%\^&lt;&gt;][ =]|[`}]|&amp;&amp;|[.][^.]|=>|\/ +|\||\|\||\-\-|\+\+|\|&gt;|&lt;|\||$|\n|\#|/\*))</string>
 		</dict>
 		<dict>
 			<key>match</key>
