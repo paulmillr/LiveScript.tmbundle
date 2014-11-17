@@ -23,6 +23,16 @@
 	<key>patterns</key>
 	<array>
 		<dict>
+			<key>match</key>
+			<string>(?x)
+				!?[~-]{1,2}&gt;\*?
+				|\(([-+/*%^&amp;&lt;&gt;.=]|==|(?=    instanceof|and|or|is|isnt))
+				|  ([-+/*%^&amp;&lt;&gt;.=]|==|(?&lt;=instanceof|and|or|is|isnt))\)
+			</string>
+			<key>name</key>
+			<string>storage.type.function.livescript</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>\/\*</string>
 			<key>captures</key>
@@ -326,7 +336,7 @@
 			<string>(?x)
 				and=|or=|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?&gt;)|\+\+|\+|
 				~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
-				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\s\.\s|\?|\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=|\(\.|\.\)
+				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\s\.\s|\?|\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=
 				|\^=
 			</string>
 			<key>name</key>
@@ -468,12 +478,6 @@
 			</string>
 			<key>name</key>
 			<string>meta.function.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>!?[~-]{1,2}&gt;\*?</string>
-			<key>name</key>
-			<string>storage.type.function.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -647,18 +651,6 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>meta.function-call.livescript</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>(?&lt;=\|&gt;)\s*(@|@@|[$\w\-]*[$\w]+)</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
 					<string>keyword.operator.livescript</string>
 				</dict>
 				<key>2</key>
@@ -690,7 +682,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(@|@@|[$\w\-]*[$\w]+)(\?)? (?!\s*(((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import|extends|implements|instanceof)\b)|[=:.*\/+\-%\^&lt;&gt;][ =]|[`}%*]|/(?!.*?/)|&amp;&amp;|[.][^.]|=>|\/ +|\||\|\||\-\-|\+\+|\|&gt;|&lt;|\||$|\n|\#|/\*))</string>
+			<string>(@|@@|[$\w\-]*[$\w]+)(\?)? (?!\s*(((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import|extends|implements|instanceof)\b)|[=:.*\/+\-%\^&lt;&gt;)][ =)]|[`}%*]|/(?!.*?/)|&amp;&amp;|[.][^.]|=>|\/ +|\||\|\||\-\-|\+\+|\|&gt;|&lt;|\||$|\n|\#|/\*))</string>
 		</dict>
 		<dict>
 			<key>match</key>
