@@ -74,3 +74,10 @@ switch | true => "#@@spaghetti"
 ~function add a=1, b=2 => a + b
 row.0._id
 new Spaghetti
+(++a++) (++ 2 ++)
+(.cool.) (+  a  -) (/ 2 *)
+(ina -a in) (-> a)
+(ina in$a)
+(a is-in)
+(in)
+((((((+ a((a))))))))
