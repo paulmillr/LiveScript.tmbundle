@@ -67,6 +67,37 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
+					<string>variable.parameter.function.livescript</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.livescript</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.livescript</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.livescript</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>match stuff like: a -&gt; … </string>
+			<key>match</key>
+			<string>\s*(\!?\(\s*[^()]*?\))\s*(!?[~-]{1,2}&gt;\*?)|\s*\!?(\b\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
+			<key>name</key>
+			<string>meta.inline.function.livescript</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
 					<string>storage.type.function.livescript</string>
 				</dict>
 				<key>2</key>
