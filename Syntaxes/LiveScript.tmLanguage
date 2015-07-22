@@ -23,6 +23,17 @@
 	<key>patterns</key>
 	<array>
 		<dict>
+			<key>match</key>
+			<string>(?x)
+				!?[~-]{1,2}&gt;\*?
+				|&lt;[~-]{1,2}!?
+				|\(\s* (?=    instanceof[\s)]|and[\s)]|or[\s)]|is[\s)]|isnt[\s)]|in[\s)]|import[\s)]|import\ all[\s)]     |\.|[-+/*%^&amp;&lt;&gt;=|][\b\s)\w$]|\*\*|\%\%)
+				|      (?&lt;=[\s(]instanceof|[\s(]and|[\s(]or|[\s(]is|[\s(]isnt|[\s(]in|[\s(]import|[\s(]import\ all|[\s(]do|\.|\*\*|\%\%|[\b\s(\w$][-+/*%^&amp;&lt;&gt;=|]) \s*\)
+			</string>
+			<key>name</key>
+			<string>storage.type.function.livescript</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>\/\*</string>
 			<key>captures</key>
@@ -67,30 +78,16 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.function.livescript</string>
+					<string>storage.type.function.livescript</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function.livescript</string>
-				</dict>
-				<key>3</key>
-				<dict>
-					<key>name</key>
-					<string>variable.parameter.function.livescript</string>
-				</dict>
-				<key>4</key>
-				<dict>
-					<key>name</key>
-					<string>storage.type.function.livescript</string>
+					<string>entity.name.function.livescript</string>
 				</dict>
 			</dict>
-			<key>comment</key>
-			<string>match stuff like: a -&gt; … </string>
 			<key>match</key>
-			<string>(\s*\!?\(\s*[^()]*?\))\s*(!?[~-]{1,2}&gt;)|\s*\!?(\(?[^()]*?\)?)\s*(&lt;[~-]{1,2}!?)</string>
-			<key>name</key>
-			<string>meta.inline.function.livescript</string>
+			<string>((?:!|~|!~|~!)?function\*?)\s+([$\w\-]*[$\w]+)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -108,18 +105,10 @@
 			</dict>
 			<key>match</key>
 			<string>(new)\s+(\w+(?:\.\w*)*)</string>
-			<key>name</key>
-			<string>meta.class.instance.constructor</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?x)
-				\b
-				p(?:ackage|r(?:ivate|otected)|ublic)
-		        |interface
-		        |enum|static|yield
-		       \b
-		   	</string>
+			<string>\b(package|private|protected|public|interface|enum|static)(?!-)\b</string>
 			<key>name</key>
 			<string>keyword.illegal.livescript</string>
 		</dict>
@@ -280,31 +269,7 @@
 		<dict>
 			<key>match</key>
 			<string>(?x)
-				\b(?&lt;![\.\$\-])(?:
-		        t(?:h(?:is|row|en)|ry|ypeof!?|il|o)
-		        |c(?:on(?:tinue|st)|a(?:se|tch)|lass)
-		        |i(?:n(?:stanceof)?|mp(?:ort(?:\s+all)?|lements)|[fs])
-		        |d(?:e(?:fault|lete|bugger)|o)
-		        |f(?:or(?:\s+own)?|inally|unction|rom|allthrough)
-		        |s(?:uper|witch)
-		        |e(?:lse|x(?:tends|port)|val)
-		        |a(?:nd|rguments)
-		        |n(?:ew|ot)
-		        |un(?:less|til)
-		        |w(?:hile|ith|hen)
-		        |o(?:f|r|therwise)
-		        |return|break|let|var|loop
-		        |match
-		        |by
-				)(?!\-|\s*:)\b
-			</string>
-			<key>name</key>
-			<string>keyword.control.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?x)
-				\b(?&lt;![\.\$\-])(
+				\b(?&lt;![\.\$\-@])(
 					instanceof|new|delete|typeof|and|or|is|isnt|not
 				)(?!\-|\s*:)\b
 			</string>
@@ -313,14 +278,73 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>&lt;\||\|&gt;</string>
+			<key>name</key>
+			<string>keyword.operator.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>=&gt;</string>
+			<key>name</key>
+			<string>keyword.control.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)
+				\b(?&lt;![\.\$\-@])(?:
+				return|break|continue|throw
+				|try|if|while|for|for\s+own|switch|unless|until
+				|catch|finally|else|nobreak|case|default|fallthrough|when|otherwise|then
+				|yield
+				)(?!\-|\s*:)\b
+			</string>
+			<key>name</key>
+			<string>keyword.control.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(?x)
 				and=|or=|%|&amp;|\^|\*|\/|(?&lt;![a-zA-Z$_])(\-)?\-(?!\-?&gt;)|\+\+|\+|
 				~(?!~?&gt;)|==|=|!=|&lt;=|&gt;=|&lt;&lt;=|&gt;&gt;=|
-				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\s\.\s|\?|\||\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=|\(\.|\.\)|
-				\^=
+				&gt;&gt;&gt;=|&lt;&gt;|&lt;(?!\[)|(?&lt;!\])&gt;|(?&lt;!\w)!(?!([~\-]+)?&gt;)|&amp;&amp;|\.\.(\.)?|\s\.\s|\?|\|\||\:|\*=|(?&lt;!\()/=|%=|\+=|\-=|\.=|&amp;=
+				|\^=
 			</string>
 			<key>name</key>
 			<string>keyword.operator.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)
+				\b(?&lt;![\.\$\-@])(?:
+				function
+				)(?!\-|\s*:)\b
+			</string>
+			<key>name</key>
+			<string>storage.type.function.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)
+				\b(?&lt;![\.\$\-@])(?:
+				this|throw|then|try|typeof!?|til|to
+				|continue|const|case|catch|class
+				|in|instanceof|import|import\s+all|implements|if|is
+				|default|delete|debugger|do
+				|for|for\s+own|finally|function|from|fallthrough
+				|super|switch
+				|else|nobreak|extends|export|eval
+				|and|arguments
+				|new|not
+				|unless|until
+				|while|with|when
+				|of|or|otherwise
+				|let|var|loop
+				|match
+				|by|yield
+				)(?!\-|\s*:)\b
+			</string>
+			<key>name</key>
+			<string>keyword.other.livescript</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -330,21 +354,19 @@
 					<key>name</key>
 					<string>variable.assignment.livescript</string>
 				</dict>
-				<key>4</key>
+				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>punctuation.separator.key-value</string>
+					<string>punctuation.separator.key-value, keyword.operator.livescript</string>
 				</dict>
-				<key>5</key>
+				<key>4</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.operator.livescript</string>
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([a-zA-Z\$_]([\w$.-])*\s*(?!\::)((:)|(=))\s*(?!(\s*!?\s*\(.*\))?\s*(!?[~-]{1,2}&gt;)))</string>
-			<key>name</key>
-			<string>variable.assignment.livescript</string>
+			<string>([a-zA-Z\$_](?:[\w$.-])*)\s*(?!\::)((:)|(=(?!&gt;)))\s*(?!(\s*!?\s*\(.*\))?\s*(!?[~-]{1,2}&gt;\*?))</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -421,41 +443,33 @@
 			<string>(?x)
 				(\s*)
 				(?=[a-zA-Z\$_])
-				(
-					[a-zA-Z\$_]([\w$.:-])*\s*
-					(?=[:=](\s*!?\s*\(.*\))?\s*(!?[~-]{1,2}&gt;))
-				)
+				([a-zA-Z\$_]([\w$.:-])*)\s*
+				(?=[:=](\s*!?\s*\(.*\))?\s*(!?[~-]{1,2}&gt;\*?))
 			</string>
 			<key>name</key>
 			<string>meta.function.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>!?[~-]{1,2}&gt;</string>
-			<key>name</key>
-			<string>storage.type.function.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>\b(?&lt;!\.)(true|on|yes)(?!\s*[:=])\b</string>
+			<string>\b(?&lt;!\.)(true|on|yes)(?!\s*:)\b</string>
 			<key>name</key>
 			<string>constant.language.boolean.true.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?&lt;!\.)(false|off|no)(?!\s*[:=])\b</string>
+			<string>\b(?&lt;!\.)(false|off|no)(?!\s*:)\b</string>
 			<key>name</key>
 			<string>constant.language.boolean.false.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?&lt;!\.)(null|void)(?!\s*[:=])\b</string>
+			<string>\b(?&lt;!\.)(null|void)(?!\s*:)\b</string>
 			<key>name</key>
 			<string>constant.language.null.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(?&lt;!\.)(super|this|extends)(?!\s*[:=])\b</string>
+			<string>\b(?&lt;!\.)(super|this|extends)(?!\s*:)\b</string>
 			<key>name</key>
 			<string>variable.language.livescript</string>
 		</dict>
@@ -510,106 +524,6 @@
 			<string>\b(console)\b</string>
 			<key>name</key>
 			<string>entity.name.type.object.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>((?&lt;=console\.)(debug|warn|info|log|error|time(End|-end)|assert))\b</string>
-			<key>name</key>
-			<string>support.function.console.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?x)\b(
-				decodeURI(Component)?|encodeURI(Component)?|eval|parse(Float|Int)|require
-			)\b</string>
-			<key>name</key>
-			<string>support.function.livescript</string>
-		</dict>
-		<dict>
-			<key>comment</key>
-			<string>Generated by DOM query from http://gkz.github.com/prelude-ls/:
-	      [].slice
-	        .call(document.querySelectorAll(".nav-pills li a"))
-	        .map(function(_) {return _.innerText})
-	        .filter(function(_) {return _.trim() !== '})
-	        .slice(2)
-	        .join("|")
-     		</string>
-			<key>match</key>
-			<string>(?x)(?&lt;![.-])\b(
-				map|filter|reject|partition|find|each|head|tail|last|initial|empty|
-				values|keys|length|cons|append|join|reverse|fold(l|r)?1?|unfoldr|
-				and(List|-list)|or(List|-list)|any|all|unique|sum|product|mean|compact|
-				concat(Map|-map)?|maximum|minimum|scan(l|r)?1?|replicate|slice|apply|
-				split(At|-at)?|take(While|-while)?|drop(While|-while)?|span|first|
-				break(It|-it)|list(ToObj|-to-obj)|obj(ToFunc|-to-func)|
-				pairs(ToObj|-to-obj)|obj(ToPairs|-to-pairs|ToLists|-to-lists)|
-				zip(All|-all)?(With|-with)?|compose|curry|partial|flip|fix|
-				sort(With|-with|By|-by)?|group(By|-by)|break(List|-list|Str|-str)|
-				difference|intersection|union|average|flatten|chars|unchars|repeat|
-				lines|unlines|words|unwords|max|min|negate|abs|signum|quot|rem|div|mod|
-				recip|pi|tau|exp|sqrt|ln|pow|sin|cos|tan|asin|acos|atan|atan2|truncate|
-				round|ceiling|floor|is(It|-it)NaN|even|odd|gcd|lcm|disabled__id
-			)\b(?![.-])</string>
-			<key>name</key>
-			<string>support.function.prelude.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?x)(?&lt;![.-])\b(that|it|e)\b</string>
-			<key>name</key>
-			<string>support.function.semireserved.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?x)((?&lt;=(\.|\]|\)))(
-				apply|call|concat|every|filter|for(Each|-each)|
-				from|has(Own|-own)(Property|-property)|index(Of|-of)|
-				is(Prototype|-prototype)(Of|-of)|join|last(Index|-index)(Of|-of)|
-				map|of|pop|property(Is|-is)(Enumerable|-enumerable)|push|
-				reduce(Right|-right)?|reverse|shift|slice|some|sort|
-				splice|to(Locale|-locale)?(String|-string)|unshift|valueOf
-			))\b(?!-) </string>
-			<key>name</key>
-			<string>support.function.method.array.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?x)((?&lt;=Array\.)(
-				isArray
-			))\b</string>
-			<key>name</key>
-			<string>support.function.static.array.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?x)((?&lt;=Object\.)(
-				create|define(Propert|-propert)(ies|y)|freeze|
-				get(Own|-own)(Property|-property)(Descriptors?|Names)|
-				get(Property|-property)(Descriptor|Names)|getPrototypeOf|
-				is((Extensible|-extensible)|(Frozen|-frozen)|(Sealed|-sealed))?|
-				keys|prevent(Extensions|-extensions)|seal
-			))\b</string>
-			<key>name</key>
-			<string>support.function.static.object.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?x)((?&lt;=Math\.)(
-				abs|acos|acosh|asin|asinh|atan|atan2|atanh|ceil|cos|cosh|exp|expm1|floor|
-				hypot|log|log10|log1p|log2|max|min|pow|random|round|sign|sin|sinh|sqrt|
-				tan|tanh|trunc
-			))\b</string>
-			<key>name</key>
-			<string>support.function.static.math.livescript</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?x)((?&lt;=Number\.)(
-				is(Finite|Integer|NaN)|to(Integer|-integer)
-			))\b</string>
-			<key>name</key>
-			<string>support.function.static.number.livescript</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -672,6 +586,198 @@
 		<dict>
 			<key>include</key>
 			<string>#numeric</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.livescript</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.function-call.livescript</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.livescript</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>()(@|@@|[$\w\-]*[$\w]+)\s*(`)</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>keyword.operator.livescript</string>
+			<key>match</key>
+			<string>`</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.livescript</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>meta.function-call.livescript</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.livescript</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>()(@|@@|[$\w\-]*[$\w]+)(?:(\??\!)|[(])</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>meta.function-call.livescript</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.livescript</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(@|@@|[$\w\-]*[$\w]+)(\?)? (?!\s*(((by|of|and|or|with|when|unless|if|is|isnt|else|nobreak|for|from|not in|in|catch|til|to|then|import|extends|implements|instanceof)\b)|[=:.*\/+\-%\^&lt;&gt;][ =)]|[`}%*)]|/(?!.*?/)|&amp;&amp;|[.][^.]|=>|\/ +|\||\|\||\-\-|\+\+|\|&gt;|&lt;|\||$|\n|\#|/\*))</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\| _</string>
+			<key>name</key>
+			<string>keyword.control.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\|(?![.])</string>
+			<key>name</key>
+			<string>keyword.control.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\|</string>
+			<key>name</key>
+			<string>keyword.operator.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>((?&lt;=console\.)(debug|warn|info|log|error|time(End|-end)|assert))\b</string>
+			<key>name</key>
+			<string>support.function.console.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)\b(
+				decodeURI(Component)?|encodeURI(Component)?|eval|parse(Float|Int)|require
+			)\b</string>
+			<key>name</key>
+			<string>support.function.livescript</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Generated by DOM query from http://gkz.github.com/prelude-ls/:
+			[].slice
+			.call(document.querySelectorAll(".nav-pills li a"))
+			.map(function(_) {return _.innerText})
+			.filter(function(_) {return _.trim() !== '})
+			.slice(2)
+			.join("|")
+			</string>
+			<key>match</key>
+			<string>(?x)(?&lt;![.-])\b(
+				map|filter|reject|partition|find|each|head|tail|last|initial|empty|
+				values|keys|length|cons|append|join|reverse|fold(l|r)?1?|unfoldr|
+				and(List|-list)|or(List|-list)|any|all|unique|sum|product|mean|compact|
+				concat(Map|-map)?|maximum|minimum|scan(l|r)?1?|replicate|slice|apply|
+				split(At|-at)?|take(While|-while)?|drop(While|-while)?|span|first|
+				break(It|-it)|list(ToObj|-to-obj)|obj(ToFunc|-to-func)|
+				pairs(ToObj|-to-obj)|obj(ToPairs|-to-pairs|ToLists|-to-lists)|
+				zip(All|-all)?(With|-with)?|compose|curry|partial|flip|fix|
+				sort(With|-with|By|-by)?|group(By|-by)|break(List|-list|Str|-str)|
+				difference|intersection|union|average|flatten|chars|unchars|repeat|
+				lines|unlines|words|unwords|max|min|negate|abs|signum|quot|rem|div|mod|
+				recip|pi|tau|exp|sqrt|ln|pow|sin|cos|tan|asin|acos|atan|atan2|truncate|
+				round|ceiling|floor|is(It|-it)NaN|even|odd|gcd|lcm|disabled__id
+			)\b(?![.-])</string>
+			<key>name</key>
+			<string>support.function.prelude.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)(?&lt;![.-])\b(that|it|e|_)\b</string>
+			<key>name</key>
+			<string>support.function.semireserved.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)((?&lt;=(\.|\]|\)))(
+				apply|call|concat|every|filter|for(Each|-each)|
+				from|has(Own|-own)(Property|-property)|index(Of|-of)|
+				is(Prototype|-prototype)(Of|-of)|join|last(Index|-index)(Of|-of)|
+				map|of|pop|property(Is|-is)(Enumerable|-enumerable)|push|
+				reduce(Right|-right)?|reverse|shift|slice|some|sort|
+				splice|to(Locale|-locale)?(String|-string)|unshift|valueOf
+			))\b(?!-) </string>
+			<key>name</key>
+			<string>support.function.method.array.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)((?&lt;=Array\.)(
+				isArray
+			))\b</string>
+			<key>name</key>
+			<string>support.function.static.array.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)((?&lt;=Object\.)(
+				create|define(Propert|-propert)(ies|y)|freeze|
+				get(Own|-own)(Property|-property)(Descriptors?|Names)|
+				get(Property|-property)(Descriptor|Names)|getPrototypeOf|
+				is((Extensible|-extensible)|(Frozen|-frozen)|(Sealed|-sealed))?|
+				keys|prevent(Extensions|-extensions)|seal
+			))\b</string>
+			<key>name</key>
+			<string>support.function.static.object.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)((?&lt;=Math\.)(
+				abs|acos|acosh|asin|asinh|atan|atan2|atanh|ceil|cos|cosh|exp|expm1|floor|
+				hypot|log|log10|log1p|log2|max|min|pow|random|round|sign|sin|sinh|sqrt|
+				tan|tanh|trunc
+			))\b</string>
+			<key>name</key>
+			<string>support.function.static.math.livescript</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?x)((?&lt;=Number\.)(
+				is(Finite|Integer|NaN)|to(Integer|-integer)
+			))\b</string>
+			<key>name</key>
+			<string>support.function.static.number.livescript</string>
+		</dict>
+		<!-- Every other word is a variable -->
+		<dict>
+			<key>match</key>
+			<string>[\$\w][\w-]*</string>
+			<key>name</key>
+			<string>variable.other.livescript</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -809,7 +915,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;!\S)(@)([a-zA-Z$_][\w$-]*)?</string>
+					<string>(?&lt;![$\w\-])(@)</string>
 					<key>name</key>
 					<string>variable.other.readwrite.instance.livescript</string>
 				</dict>
@@ -846,7 +952,7 @@
 					<key>begin</key>
 					<string>\#</string>
 					<key>match</key>
-					<string>#([a-zA-Z$_-]+|@@?)</string>
+					<string>#([a-zA-Z$_-]+|@)</string>
 					<key>end</key>
 					<string></string>
 					<key>name</key>
@@ -867,7 +973,7 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?&lt;![\$@a-zA-Z_])(([0-9]+r[0-9_]+)|((16r|0[xX])[0-9a-fA-F_]+)|([0-9]+(\.[0-9_]+)?(e[+\-]?[0-9_]+)?)[_a-zA-Z]*)</string>
+					<string>(?&lt;![\$@a-zA-Z_])(([0-9]+r[0-9_]+)|((16r|0[xX])[0-9a-fA-F_]+)|([0-9]+(\.[0-9]+[0-9_]*)?(e[+\-]?[0-9_]+)?)[_a-zA-Z0-9]*)</string>
 					<key>name</key>
 					<string>constant.numeric.livescript</string>
 				</dict>
